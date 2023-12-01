@@ -1,3 +1,59 @@
+def cadastrar(cadastros, nome, idade, email, senha):
+    # Adiciona as informações à lista de cadastros
+    cadastros.append({"nome": nome, "idade": idade, "email": email, "senha": senha})
+    print("Cadastro realizado com sucesso!")
+
+def atualizar(cadastros):
+    print("\nAtualização de Cadastro:")
+    email_atualizar = input("\nDigite o email do cadastro a ser atualizado (ou digite 0 para sair): ")
+
+    if email_atualizar == "0":
+        return
+
+    # Procura o cadastro na lista e atualiza as informações
+    for cadastro in cadastros:
+        if cadastro["email"] == email_atualizar:
+            cadastro["idade"] = input("Digite a nova idade: ")
+            cadastro["senha"] = input("Digite a nova senha: ")
+            print("Cadastro atualizado com sucesso!")
+            return  # Adiciona um return para sair da função após a atualização
+
+    # Se o email não for encontrado
+    print("Cadastro não encontrado.")
+
+def excluir(cadastros):
+    print("\nExclusão de Cadastro:")
+    email_excluir = input("Digite o email do cadastro a ser excluído (ou digite 0 para sair): ")
+
+    if email_excluir == "0":
+        return
+
+    # Remove o cadastro da lista
+    for cadastro in cadastros:
+        if cadastro["email"] == email_excluir:
+            cadastros.remove(cadastro)
+            print("Cadastro excluído com sucesso!")
+            return  # Adiciona um return para sair da função após a exclusão
+
+    # Se o email não for encontrado
+    print("Cadastro não encontrado.")
+
+def ver_cadastro(cadastros):
+    print("\nConsulta de Cadastro:")
+    email_consulta = input("Digite o email do cadastro a ser consultado (ou digite 0 para sair): ")
+
+    if email_consulta == "0":
+        return
+
+    # Exibe as informações do cadastro
+    for cadastro in cadastros:
+        if cadastro["email"] == email_consulta:
+            print(f"Nome: {cadastro['nome']}, Idade: {cadastro['idade']}, Email: {cadastro['email']}")
+            return  # Adiciona um return para sair da função após a consulta
+
+    # Se o email não for encontrado
+    print("\nCadastro não encontrado.")
+
 def verificar_dados(batimentos, saturacao, freq_respiratoria, pressao):
     print("\nResultado:")
 
