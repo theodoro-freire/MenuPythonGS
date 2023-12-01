@@ -1,3 +1,41 @@
+# Lista para armazenar cadastros
+cadastros = []
+
+# Explicação sobre nossa equipe e solução.
+def exibir_equipe_e_solucao():
+    print("\nEquipe:\n Gustavo Rocha Caxias - RM: 553310 \n Matheus Tenreiro Rodrigues - RM: 553734 \n Theodoro Freire de Lima - RM: 552903\n")
+    print("\nSolução:\n Apresentamos uma solução inovadora de monitoramento de saúde, simplificando o processo para os usuários. Ao inserirem informações vitais, como batimentos cardíacos e pressão arterial, nosso sistema oferece recomendações instantâneas para consultas e exames. Focamos na prevenção, identificando precocemente problemas de saúde, o que não apenas melhora as chances de tratamento eficaz, mas também reduz os custos associados a intervenções médicas complexas. Nossa abordagem eficiente e preventiva se traduz em economia de dinheiro a longo prazo, promovendo uma vida saudável de forma acessível. Estamos comprometidos em simplificar e fortalecer a jornada de cuidados com a saúde.")
+    input("\nPressione Enter para voltar ao menu principal.")
+
+# Menu secundário de cadastro
+def cadastrar_atualizar_excluir_ver(cadastros, nome, idade, email, senha):
+    while True:
+        print("\nMenu de Cadastro:")
+        print("1. Cadastrar")
+        print("2. Atualizar")
+        print("3. Excluir")
+        print("4. Ver Cadastro")
+        print("0. Voltar ao menu principal")
+
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "1":
+            nome = input("\nDigite seu nome: ")
+            idade = input("\nDigite sua idade: ")
+            email = input("\nDigite seu email: ")
+            senha = input("\nDigite sua senha: ")
+            cadastrar(cadastros, nome, idade, email, senha)
+        elif opcao == "2":
+            atualizar(cadastros)
+        elif opcao == "3":
+            excluir(cadastros)
+        elif opcao == "4":
+            ver_cadastro(cadastros)
+        elif opcao == "0":
+            break
+        else:
+            print("Opção inválida. Tente novamente.")
+
 def cadastrar(cadastros, nome, idade, email, senha):
     # Adiciona as informações à lista de cadastros
     cadastros.append({"nome": nome, "idade": idade, "email": email, "senha": senha})
